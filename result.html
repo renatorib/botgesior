@@ -1,0 +1,697 @@
+Initialized.
+Created: pewiroqa/pewiroqa
+﻿<html>
+<head>
+<meta charset="utf-8">
+<title>Createaccount - The Majestic OTS</title>
+<meta name="description" content="Tibia is a free massively multiplayer online role-playing game (MMORPG)">
+<meta name="author" content="Felipe">
+<meta http-equiv="content-language" content="en">
+<meta name="keywords" content="free online rpg, free mmorpg, mmorpg, mmog, online role playing game, online multiplayer game, internet game, online rpg, rpg">
+<!--ICON-->
+<link rel="shortcut icon" href="./layouts/tibiarl/images/general/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./layouts/tibiarl/images/general/favicon.ico" type="image/x-icon">
+<!--CSS'S-->
+<link href="./layouts/tibiarl/css/basic_d.css" rel="stylesheet" type="text/css">
+<link href="./layouts/tibiarl/css/news.css" rel="stylesheet" type="text/css">
+<!--JS-->
+
+<script id="twitter-wjs" src="./layouts/tibiarl/js/widgets.js"></script>
+<script id="facebook-jssdk" async src="./layouts/tibiarl/js/all.js"></script>
+<script type="text/javascript" src="./layouts/tibiarl/js/jquery.js"></script>
+<script type="text/javascript" src="./layouts/tibiarl/js/ajaxcip.js"></script>
+<script type="text/javascript" src="./layouts/tibiarl/js/generic.js"></script>
+<script type="text/javascript" src="./layouts/tibiarl/js/create_character.js"></script>
+<script type="text/javascript">  
+var loginStatus=0; 
+loginStatus='false';  
+var activeSubmenuItem='createaccount';  
+var JS_DIR_IMAGES=0; 
+JS_DIR_IMAGES='./layouts/tibiarl/images/';  
+var JS_DIR_ACCOUNT=0; 
+JS_DIR_ACCOUNT='';  
+var g_FormName='';  
+var g_FormField='';  
+var g_Deactivated=false;
+var FB_TryLogin = 0;
+var FB_ForceReload = 0;
+</script>
+<script type="text/javascript">
+  if(top.location != window.location) {
+    top.location = self.location;
+  }
+</script>
+<script type="text/javascript" src="./layouts/tibiarl/initialize.js"></script>
+
+<link href="./layouts/tibiarl/css/facebook.css" rel="stylesheet" type="text/css">  
+</head>
+
+<body onBeforeUnLoad="SaveMenu();" onUnload="SaveMenu();" data-twttr-rendered="true">
+<script type="text/javascript">
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : 497232093667125, // App ID
+      status     : true,              // check login status
+      cookie     : true,              // enable cookies to allow the server to access the session
+      xfbml      : true               // parse XFBML
+    });
+    FB.Event.subscribe('auth.login', function() {
+      var URLHelper = "?";
+      if (window.location.search.replace("?", "").length > 0) {
+        URLHelper = "&";
+      }
+      if (FB_TryLogin == 1) {
+        window.location = window.location + URLHelper + "step=facebooktrylogin&wasreloaded=1";
+      } else if (FB_TryLogin == 2) {
+        window.location = window.location + URLHelper + "page=facebooktrylogin&wasreloaded=1";
+      } else {
+        window.location = window.location + URLHelper + "wasreloaded=1";
+      }
+    });
+    FB.Event.subscribe('auth.logout', function(a_Response) {
+      if (a_Response.status !== 'connected') {
+        window.location.href=window.location.href;
+      } else {
+        /* nothing to do here*/
+      }
+    });
+    FB.Event.subscribe('auth.statusChange', function(response) {
+      if (FB_ForceReload == 1 && response.status == "connected") {
+        var URLHelper = "?";
+        if (window.location.search.replace("?", "").length > 0) {
+          URLHelper = "&";
+        }
+        window.location = window.location + URLHelper + "step=facebooktrylogin&wasreloaded=1";
+      }
+    });
+  };
+  (function(d){
+    var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement('script'); js.id = id; js.async = true;
+    js.src = "//connect.facebook.net/en_US/all.js";
+    ref.parentNode.insertBefore(js, ref);
+  }(document));
+</script>
+  <a name="top"></a>
+  <div id="MainHelper1">
+  	<div id="MainHelper2">
+    	<div id="ArtworkHelper1">
+        	<div id="ArtworkHelper2">
+          		<div id="HeaderArtworkDiv" style="background-image:url(./layouts/tibiarl/images/header/background-artwork.jpg);"></div>
+        	</div>
+      	</div>
+      	<div id="DeactivationContainer" onclick="DisableDeactivationContainer();"></div>
+
+      	<div id="Bodycontainer">
+      	<div id="ContentRow">
+          	<div id="MenuColumn">
+            	<div id="LeftArtwork">
+              		<a href="#">
+						<img id="TibiaLogoArtworkTop" src="./layouts/tibiarl/images/header/tibia-logo-artwork-top.gif" alt="logoartwork">
+					</a>
+            	</div>
+  				<div id="Loginbox">
+    <div id="LoginTop" style="background-image:url(./layouts/tibiarl/images/general/box-top.gif)"></div>
+    <div id="BorderLeft" class="LoginBorder" style="background-image:url(./layouts/tibiarl/images/general/chain.gif)"></div>
+    <div id="LoginButtonContainer" style="background-image:url(./layouts/tibiarl/images/loginbox/loginbox-textfield-background.gif)">
+      <div id="PlayNowContainer"><form class="MediumButtonForm" action="?subtopic=accountmanagement" method="post"><input type="hidden" name="page" value="overview"><div class="MediumButtonBackground" style="background-image:url(./layouts/tibiarl/images/buttons/mediumbutton.gif)" onmouseover="MouseOverMediumButton(this);" onmouseout="MouseOutMediumButton(this);"><div class="MediumButtonOver" style="background-image: url(./layouts/tibiarl/images/buttons/mediumbutton-over.gif); visibility: hidden;" onmouseover="MouseOverMediumButton(this);" onmouseout="MouseOutMediumButton(this);"></div><input class="MediumButtonText" type="image" name="Play Now" alt="Play Now" src="./layouts/tibiarl/images/buttons/mediumbutton_playnow.png"></div></form></div>
+    </div>
+    <div class="Loginstatus" style="background-image:url(./layouts/tibiarl/images/loginbox/loginbox-textfield-background.gif)">
+      <div id="LoginstatusText" onclick="LoginstatusTextAction(this);" onmouseover="MouseOverLoginBoxText(this);" onmouseout="MouseOutLoginBoxText(this);"><div id="LoginstatusText_1" class="LoginstatusText" style="background-image: url(./layouts/tibiarl/images/loginbox/loginbox-font-create-account.gif); visibility: visible;"></div><div id="LoginstatusText_2" class="LoginstatusText" style="background-image: url(./layouts/tibiarl/images/loginbox/loginbox-font-create-account-over.gif); visibility: hidden;"></div></div>
+    </div>
+    <div id="BorderRight" class="LoginBorder" style="background-image:url(./layouts/tibiarl/images/general/chain.gif)"></div>
+    <div id="LoginBottom" class="Loginstatus" style="background-image:url(./layouts/tibiarl/images/general/box-bottom.gif)"></div>
+  </div>				<div id="Menu">
+					<div id="MenuTop" style="background-image:url(./layouts/tibiarl/images/general/box-top.gif);"></div>
+						<div id="news" class="menuitem">
+							<span onclick="MenuItemAction('news')">
+  								<div class="MenuButton" style="background-image:url(./layouts/tibiarl/images/menu/button-background.gif);">
+    								<div onmouseover="MouseOverMenuItem(this);" onmouseout="MouseOutMenuItem(this);"><div class="Button" style="background-image:url(./layouts/tibiarl/images/menu/button-background-over.gif);"></div>
+      								<span id="news_Lights" class="Lights">
+        								<div class="light_lu" style="background-image:url(./layouts/tibiarl/images/menu/green-light.gif);"></div>
+										<div class="light_ld" style="background-image:url(./layouts/tibiarl/images/menu/green-light.gif);"></div>
+										<div class="light_ru" style="background-image:url(./layouts/tibiarl/images/menu/green-light.gif);"></div>
+      								</span>
+									<div id="news_Icon" class="Icon" style="background-image:url(./layouts/tibiarl/images/menu/icon-news.gif);"></div>
+									<div id="news_Label" class="Label" style="background-image:url(./layouts/tibiarl/images/menu/label-news.gif);"></div>
+									<div id="news_Extend" class="Extend" style="background-image: url(./layouts/tibiarl/images/general/minus.gif);"></div>
+    							</div>
+  							</div>
+						</span>
+						<div id="news_Submenu" class="Submenu">
+							<a href="?subtopic=latestnews">
+  								<div id="submenu_latestnews" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
+    								<div class="LeftChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+    								<div id="ActiveSubmenuItemIcon_latestnews" class="ActiveSubmenuItemIcon" style="background-image: url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);"></div>
+    								<div id="ActiveSubmenuItemLabel_latestnews" class="SubmenuitemLabel">Latest News</div>
+    								<div class="RightChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+  								</div>
+							</a>
+							<a href="?subtopic=archive">
+  								<div id="submenu_archive" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
+    								<div class="LeftChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+									<div id="ActiveSubmenuItemIcon_archive" class="ActiveSubmenuItemIcon" style="background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);"></div>
+									<div id="ActiveSubmenuItemLabel_archive" class="SubmenuitemLabel">News Archive</div>
+									<div class="RightChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+  								</div>
+							</a>
+							<!--<a href="?subtopic=cast">
+  								<div id="submenu_archive" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
+    								<div class="LeftChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+									<div id="ActiveSubmenuItemIcon_archive" class="ActiveSubmenuItemIcon" style="background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);"></div>
+									<div id="ActiveSubmenuItemLabel_archive" class="SubmenuitemLabel"><font color="red">Cast System</font></div>
+									<div class="RightChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+  								</div>
+							</a>-->
+							<a href="?subtopic=streamtemple">
+  								<div id="submenu_archive" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
+    								<div class="LeftChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+									<div id="ActiveSubmenuItemIcon_archive" class="ActiveSubmenuItemIcon" style="background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);"></div>
+									<div id="ActiveSubmenuItemLabel_archive" class="SubmenuitemLabel"><font color="green">Live Stream</font></div>
+									<div class="RightChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+  								</div>
+							</a>
+						</div>
+					</div>
+				<div id="library" class="menuitem">
+					<span onclick="MenuItemAction('library')">
+						<div class="MenuButton" style="background-image:url(./layouts/tibiarl/images/menu/button-background.gif);">
+							<div onmouseover="MouseOverMenuItem(this);" onmouseout="MouseOutMenuItem(this);"><div class="Button" style="background-image:url(./layouts/tibiarl/images/menu/button-background-over.gif);"></div>
+							<span id="library_Lights" class="Lights">
+								<div class="light_lu" style="background-image:url(./layouts/tibiarl/images/menu/green-light.gif);"></div>
+								<div class="light_ld" style="background-image:url(./layouts/tibiarl/images/menu/green-light.gif);"></div>
+								<div class="light_ru" style="background-image:url(./layouts/tibiarl/images/menu/green-light.gif);"></div>
+							</span>
+							<div id="library_Icon" class="Icon" style="background-image:url(./layouts/tibiarl/images/menu/icon-library.gif);"></div>
+							<div id="library_Label" class="Label" style="background-image:url(./layouts/tibiarl/images/menu/label-library.gif);"></div>
+							<div id="library_Extend" class="Extend" style="background-image: url(./layouts/tibiarl/images/general/plus.gif);"></div>
+						</div>
+					</div>
+				</span>
+				<div id="library_Submenu" class="Submenu">
+					<a href="?subtopic=serverinfo">
+						<div id="submenu_serverinfo" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
+							<div class="LeftChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+							<div id="ActiveSubmenuItemIcon_serverinfo" class="ActiveSubmenuItemIcon" style="background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);"></div>
+							<div id="ActiveSubmenuItemLabel_serverinfo" class="SubmenuitemLabel">Server Info</div>
+							<div class="RightChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+						</div>
+					</a>
+					<a href="?subtopic=addons">
+						<div id="submenu_addons" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
+							<div class="LeftChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+							<div id="ActiveSubmenuItemIcon_experiencetable" class="ActiveSubmenuItemIcon" style="background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);"></div>
+							<div id="ActiveSubmenuItemLabel_experiencetable" class="SubmenuitemLabel"><font color="yellow">Addons</font></div>
+							<div class="RightChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+						</div>
+					</a>
+					<a href="?subtopic=mounts">
+						<div id="submenu_mounts" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
+							<div class="LeftChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+							<div id="ActiveSubmenuItemIcon_experiencetable" class="ActiveSubmenuItemIcon" style="background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);"></div>
+							<div id="ActiveSubmenuItemLabel_experiencetable" class="SubmenuitemLabel"><font color="orange">Mounts</font></div>
+							<div class="RightChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+						</div>
+					</a>
+					<a href="?subtopic=experiencetable">
+						<div id="submenu_experiencetable" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
+							<div class="LeftChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+							<div id="ActiveSubmenuItemIcon_experiencetable" class="ActiveSubmenuItemIcon" style="background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);"></div>
+							<div id="ActiveSubmenuItemLabel_experiencetable" class="SubmenuitemLabel">Experience Table</div>
+							<div class="RightChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div id="community" class="menuitem">
+				<span onclick="MenuItemAction('community')">
+					<div class="MenuButton" style="background-image:url(./layouts/tibiarl/images/menu/button-background.gif);">
+						<div onmouseover="MouseOverMenuItem(this);" onmouseout="MouseOutMenuItem(this);"><div class="Button" style="background-image:url(./layouts/tibiarl/images/menu/button-background-over.gif);"></div>
+						<span id="community_Lights" class="Lights">
+							<div class="light_lu" style="background-image:url(./layouts/tibiarl/images/menu/green-light.gif);"></div>
+							<div class="light_ld" style="background-image:url(./layouts/tibiarl/images/menu/green-light.gif);"></div>
+							<div class="light_ru" style="background-image:url(./layouts/tibiarl/images/menu/green-light.gif);"></div>
+						</span>
+						<div id="community_Icon" class="Icon" style="background-image:url(./layouts/tibiarl/images/menu/icon-community.gif);"></div>
+						<div id="community_Label" class="Label" style="background-image:url(./layouts/tibiarl/images/menu/label-community.gif);"></div>
+						<div id="community_Extend" class="Extend" style="background-image: url(./layouts/tibiarl/images/general/plus.gif);"></div>
+					</div>
+				</div>
+			</span>
+			<div id="community_Submenu" class="Submenu">
+				<a href="?subtopic=characters">
+					<div id="submenu_characters" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
+						<div class="LeftChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+						<div id="ActiveSubmenuItemIcon_characters" class="ActiveSubmenuItemIcon" style="background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);"></div>
+						<div id="ActiveSubmenuItemLabel_characters" class="SubmenuitemLabel">Characters</div>
+						<div class="RightChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+					</div>
+				</a>
+				<a href="?subtopic=whoisonline">
+					<div id="submenu_whoisonline" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
+						<div class="LeftChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+						<div id="ActiveSubmenuItemIcon_whoisonline" class="ActiveSubmenuItemIcon" style="background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);"></div>
+						<div id="ActiveSubmenuItemLabel_whoisonline" class="SubmenuitemLabel">Who is online</div>
+						<div class="RightChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+					</div>
+				</a>
+				<a href="?subtopic=highscores">
+					<div id="submenu_highscores" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
+						<div class="LeftChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+						<div id="ActiveSubmenuItemIcon_highscores" class="ActiveSubmenuItemIcon" style="background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);"></div>
+						<div id="ActiveSubmenuItemLabel_highscores" class="SubmenuitemLabel">Highscores</div>
+						<div class="RightChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+					</div>
+				</a>
+				<a href="?subtopic=killstatistics">
+					<div id="submenu_killstatistics" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
+						<div class="LeftChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+						<div id="ActiveSubmenuItemIcon_killstatistics" class="ActiveSubmenuItemIcon" style="background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);"></div>
+						<div id="ActiveSubmenuItemLabel_killstatistics" class="SubmenuitemLabel">Kill Statistics</div>
+						<div class="RightChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+					</div>
+				</a>
+				<a href="?subtopic=houses">
+					<div id="submenu_houses" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
+						<div class="LeftChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+						<div id="ActiveSubmenuItemIcon_houses" class="ActiveSubmenuItemIcon" style="background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);"></div>
+						<div id="ActiveSubmenuItemLabel_houses" class="SubmenuitemLabel">Houses</div>
+						<div class="RightChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+					</div>
+				</a>
+				<a href="?subtopic=guilds">
+					<div id="submenu_guilds" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
+						<div class="LeftChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+						<div id="ActiveSubmenuItemIcon_guilds" class="ActiveSubmenuItemIcon" style="background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);"></div>
+						<div id="ActiveSubmenuItemLabel_guilds" class="SubmenuitemLabel">Guilds</div>
+						<div class="RightChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+					</div>
+				</a>
+				<a href="?subtopic=wars">
+					<div id="submenu_wars" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
+						<div class="LeftChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+						<div id="ActiveSubmenuItemIcon_guilds" class="ActiveSubmenuItemIcon" style="background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);"></div>
+						<div id="ActiveSubmenuItemLabel_guilds" class="SubmenuitemLabel"><font color="red">Guilds Wars</font></div>
+						<div class="RightChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+					</div>
+				</a>
+			</div>
+		</div>
+			<div id="forum" class="menuitem">
+				<span onclick="MenuItemAction('forum')">
+					<div class="MenuButton" style="background-image:url(./layouts/tibiarl/images/menu/button-background.gif);">
+						<div onmouseover="MouseOverMenuItem(this);" onmouseout="MouseOutMenuItem(this);"><div class="Button" style="background-image:url(./layouts/tibiarl/images/menu/button-background-over.gif);"></div>
+						<span id="forum_Lights" class="Lights">
+							<div class="light_lu" style="background-image:url(./layouts/tibiarl/images/menu/green-light.gif);"></div>
+							<div class="light_ld" style="background-image:url(./layouts/tibiarl/images/menu/green-light.gif);"></div>
+							<div class="light_ru" style="background-image:url(./layouts/tibiarl/images/menu/green-light.gif);"></div>
+						</span>
+						<div id="forum_Icon" class="Icon" style="background-image:url(./layouts/tibiarl/images/menu/icon-forum.gif);"></div>
+						<div id="forum_Label" class="Label" style="background-image:url(./layouts/tibiarl/images/menu/label-forum.gif);"></div>
+						<div id="forum_Extend" class="Extend" style="background-image: url(./layouts/tibiarl/images/general/plus.gif);"></div>
+					</div>
+				</div>
+			</span>
+			<div id="forum_Submenu" class="Submenu">
+				<a href="?subtopic=forum">
+					<div id="submenu_forum" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
+						<div class="LeftChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+						<div id="ActiveSubmenuItemIcon_forum" class="ActiveSubmenuItemIcon" style="background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);"></div>
+						<div id="ActiveSubmenuItemLabel_forum" class="SubmenuitemLabel">Server Forum</div>
+						<div class="RightChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+					</div>
+				</a>
+			</div>
+		</div>
+			<div id="account" class="menuitem">
+				<span onclick="MenuItemAction('account')">
+  					<div class="MenuButton" style="background-image:url(./layouts/tibiarl/images/menu/button-background.gif);">
+    					<div onmouseover="MouseOverMenuItem(this);" onmouseout="MouseOutMenuItem(this);"><div class="Button" style="background-image:url(./layouts/tibiarl/images/menu/button-background-over.gif);"></div>
+      					<span id="account_Lights" class="Lights">
+        					<div class="light_lu" style="background-image:url(./layouts/tibiarl/images/menu/green-light.gif);"></div>
+							<div class="light_ld" style="background-image:url(./layouts/tibiarl/images/menu/green-light.gif);"></div>
+							<div class="light_ru" style="background-image:url(./layouts/tibiarl/images/menu/green-light.gif);"></div>
+      					</span>
+					  	<div id="account_Icon" class="Icon" style="background-image:url(./layouts/tibiarl/images/menu/icon-account.gif);"></div>
+					  	<div id="account_Label" class="Label" style="background-image:url(./layouts/tibiarl/images/menu/label-account.gif);"></div>
+					  	<div id="account_Extend" class="Extend" style="background-image: url(./layouts/tibiarl/images/general/plus.gif);"></div>
+    				</div>
+  				</div>
+			</span>
+			<div id="account_Submenu" class="Submenu">
+							<a href="?subtopic=accountmanagement">
+  					<div id="submenu_accountmanagement" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
+						<div class="LeftChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+						<div id="ActiveSubmenuItemIcon_accountmanagement" class="ActiveSubmenuItemIcon" style="background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);"></div>
+						<div id="ActiveSubmenuItemLabel_accountmanagement" class="SubmenuitemLabel">Account Management</div>
+						<div class="RightChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+  					</div>
+				</a>
+				<a href="?subtopic=createaccount">
+  					<div id="submenu_createaccount" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
+    					<div class="LeftChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+						<div id="ActiveSubmenuItemIcon_createaccount" class="ActiveSubmenuItemIcon" style="background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);"></div>
+						<div id="ActiveSubmenuItemLabel_createaccount" class="SubmenuitemLabel">Create Account</div>
+						<div class="RightChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+  					</div>
+				</a>
+								<a href="?subtopic=download&action=downloadagreement">
+  					<div id="submenu_download" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
+						<div class="LeftChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+						<div id="ActiveSubmenuItemIcon_download" class="ActiveSubmenuItemIcon" style="background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);"></div>
+						<div id="ActiveSubmenuItemLabel_download" class="SubmenuitemLabel">Download Client</div>
+						<div class="RightChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+  					</div>
+				</a>
+								<a href="?subtopic=lostaccount">
+  					<div id="submenu_lostaccount" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
+						<div class="LeftChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+						<div id="ActiveSubmenuItemIcon_lostaccount" class="ActiveSubmenuItemIcon" style="background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);"></div>
+						<div id="ActiveSubmenuItemLabel_lostaccount" class="SubmenuitemLabel">Lost Account?</div>
+						<div class="RightChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+  					</div>
+				</a>
+			</div>
+		</div>
+			<div id="team" class="menuitem">
+				<span onclick="MenuItemAction('team')">
+  					<div class="MenuButton" style="background-image:url(./layouts/tibiarl/images/menu/button-background.gif);">
+    					<div onmouseover="MouseOverMenuItem(this);" onmouseout="MouseOutMenuItem(this);"><div class="Button" style="background-image: url(./layouts/tibiarl/images/menu/button-background-over.gif);"></div>
+      					<span id="team_Lights" class="Lights">
+							<div class="light_lu" style="background-image:url(./layouts/tibiarl/images/menu/green-light.gif);"></div>
+							<div class="light_ld" style="background-image:url(./layouts/tibiarl/images/menu/green-light.gif);"></div>
+							<div class="light_ru" style="background-image:url(./layouts/tibiarl/images/menu/green-light.gif);"></div>
+      					</span>
+						<div id="team_Icon" class="Icon" style="background-image:url(./layouts/tibiarl/images/menu/icon-support.gif);"></div>
+						<div id="team_Label" class="Label" style="background-image:url(./layouts/tibiarl/images/menu/label-support.gif);"></div>
+						<div id="team_Extend" class="Extend" style="background-image: url(./layouts/tibiarl/images/general/plus.gif);"></div>
+    				</div>
+  				</div>
+			</span>
+			<div id="team_Submenu" class="Submenu">
+				<a href="?subtopic=tibiarules">
+  					<div id="submenu_tibiarules" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
+						<div class="LeftChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+						<div id="ActiveSubmenuItemIcon_tibiarules" class="ActiveSubmenuItemIcon" style="background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);"></div>
+						<div id="ActiveSubmenuItemLabel_tibiarules" class="SubmenuitemLabel">Tibia Rules</div>
+						<div class="RightChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+  					</div>
+				</a>
+				<a href="?subtopic=team">
+  					<div id="submenu_team" class="Submenuitem" onmouseover="MouseOverSubmenuItem(this)" onmouseout="MouseOutSubmenuItem(this)">
+						<div class="LeftChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+						<div id="ActiveSubmenuItemIcon_team" class="ActiveSubmenuItemIcon" style="background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);"></div>
+						<div id="ActiveSubmenuItemLabel_team" class="SubmenuitemLabel">Support List</div>
+						<div class="RightChain" style="background-image:url(./layouts/tibiarl/images/general/chain.gif);"></div>
+  					</div>
+				</a>
+			</div>
+		</div>
+					<div id="shops" class="menuitem">
+				<span onclick="MenuItemAction('shops')">
+  					<div class="MenuButton" style="background-image:url(./layouts/tibiarl/images/menu/button-background.gif);">
+    					<div onmouseover="MouseOverMenuItem(this);" onmouseout="MouseOutMenuItem(this);"><div class="Button" style="background-image: url(./layouts/tibiarl/images/menu/button-background-over.gif);"></div>
+      					<span id="shops_Lights" class="Lights">
+							<div class="light_lu" style="background-image:url(./layouts/tibiarl/images/menu/green-light.gif);"></div>
+							<div class="light_ld" style="background-image:url(./layouts/tibiarl/images/menu/green-light.gif);"></div>
+							<div class="light_ru" style="background-image:url(./layouts/tibiarl/images/menu/green-light.gif);"></div>
+      					</span>
+					  	<div id="shops_Icon" class="Icon" style="background-image:url(./layouts/tibiarl/images/menu/icon-shops.gif);"></div>
+					  	<div id="shops_Label" class="Label" style="background-image:url(./layouts/tibiarl/images/menu/label-shops.gif);"></div>
+					  	<div id="shops_Extend" class="Extend" style="background-image: url(./layouts/tibiarl/images/general/plus.gif);"></div>
+    				</div>
+  				</div>
+			</span>
+			<div id="shops_Submenu" class="Submenu">
+			<!--
+				<a href='?subtopic=oxxo'>
+  					<div id='submenu_buypoints' class='Submenuitem' onMouseOver='MouseOverSubmenuItem(this)' onMouseOut='MouseOutSubmenuItem(this)'>
+    					<div class='LeftChain' style='background-image:url(./layouts/tibiarl/images/general/chain.gif);'></div>
+						<div id='ActiveSubmenuItemIcon_buypoints' class='ActiveSubmenuItemIcon' style='background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);'></div>
+						<div class='SubmenuitemLabel'><font color="yellow">Donate with OXXO/Bancomer</font></div>
+						<div class='RightChain' style='background-image:url(./layouts/tibiarl/images/general/chain.gif);'></div>
+  					</div>
+				</a>
+				<a href='?subtopic=paypal'>
+  					<div id='submenu_buypoints' class='Submenuitem' onMouseOver='MouseOverSubmenuItem(this)' onMouseOut='MouseOutSubmenuItem(this)'>
+    					<div class='LeftChain' style='background-image:url(./layouts/tibiarl/images/general/chain.gif);'></div>
+						<div id='ActiveSubmenuItemIcon_buypoints' class='ActiveSubmenuItemIcon' style='background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);'></div>
+						<div class='SubmenuitemLabel'><font color="#296192">Donate with PayPal</font></div>
+						<div class='RightChain' style='background-image:url(./layouts/tibiarl/images/general/chain.gif);'></div>
+  					</div>
+				</a>
+				
+				<a href='?subtopic=contenidopago'>
+  					<div id='submenu_buypoints' class='Submenuitem' onMouseOver='MouseOverSubmenuItem(this)' onMouseOut='MouseOutSubmenuItem(this)'>
+    					<div class='LeftChain' style='background-image:url(./layouts/tibiarl/images/general/chain.gif);'></div>
+						<div id='ActiveSubmenuItemIcon_buypoints' class='ActiveSubmenuItemIcon' style='background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);'></div>
+						<div class='SubmenuitemLabel'><font color="orange">Donate with SMS</font></div>
+						<div class='RightChain' style='background-image:url(./layouts/tibiarl/images/general/chain.gif);'></div>
+  					</div>
+				</a>
+				-->
+				<a href='?subtopic=donate'>
+  					<div id='submenu_buypoints' class='Submenuitem' onMouseOver='MouseOverSubmenuItem(this)' onMouseOut='MouseOutSubmenuItem(this)'>
+    					<div class='LeftChain' style='background-image:url(./layouts/tibiarl/images/general/chain.gif);'></div>
+						<div id='ActiveSubmenuItemIcon_buypoints' class='ActiveSubmenuItemIcon' style='background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);'></div>
+						<div class='SubmenuitemLabel'><font color="yellow">Donate!</font></div>
+						<div class='RightChain' style='background-image:url(./layouts/tibiarl/images/general/chain.gif);'></div>
+  					</div>
+				</a>
+				<a href='?subtopic=shopsystem'>
+  					<div id='submenu_shopsystem' class='Submenuitem' onMouseOver='MouseOverSubmenuItem(this)' onMouseOut='MouseOutSubmenuItem(this)'>
+						<div class='LeftChain' style='background-image:url(./layouts/tibiarl/images/general/chain.gif);'></div>
+						<div id='ActiveSubmenuItemIcon_shopsystem' class='ActiveSubmenuItemIcon' style='background-image:url(./layouts/tibiarl/images/menu/icon-activesubmenu.gif);'></div>
+						<div class='SubmenuitemLabel'><font color="green">Shop Offer</font></div>
+						<div class='RightChain' style='background-image:url(./layouts/tibiarl/images/general/chain.gif);'></div>
+  					</div>
+				</a>
+											</div>
+		</div>
+				<div id="MenuBottom" style="background-image:url(./layouts/tibiarl/images/general/box-bottom.gif);"></div>
+	</div>
+	<script type="text/javascript">InitializePage();</script></div>
+    	<div id="ContentColumn">
+        	<div id="Content" class="Content">
+            	<div id="ContentHelper">
+				<script type="text/javascript" src="./layouts/tibiarl/newsticker.js"></script>
+				  				<div id="news" class="Box">
+    				<div class="Corner-tl" style="background-image:url(./layouts/tibiarl/images/content/corner-tl.gif);"></div>
+					<div class="Corner-tr" style="background-image:url(./layouts/tibiarl/images/content/corner-tr.gif);"></div>
+					<div class="Border_1" style="background-image:url(./layouts/tibiarl/images/content/border-1.gif);"></div>
+					<div class="BorderTitleText" style="background-image:url(./layouts/tibiarl/images/content/title-background-green.gif);"></div>
+    				<img id="ContentBoxHeadline" class="Title" src="pages/headline.php?txt=Createaccount" alt="Contentbox headline">
+    				<div class="Border_2">
+      					<div class="Border_3">
+        					<div class="BoxContent" style="background-image:url(./layouts/tibiarl/images/content/scroll.gif);">
+								Your account has been created. Now you can login and create your first character. See you in Tibia!<BR><BR><TABLE WIDTH=100% BORDER=0 CELLSPACING=1 CELLPADDING=4>
+			<TR><TD BGCOLOR="#505050" CLASS=white><B>Account Created</B></TD></TR>
+			<TR><TD BGCOLOR="#D4C0A1">
+			  <TABLE BORDER=0 CELLPADDING=1><TR><TD>
+			    <BR>Your account name is <b>PEWIROQA</b><br>You will need the account name and your password to play on The Majestic OTS.
+			    Please keep your account name and password in a safe place and
+			    never give your account name or password to anybody.<BR><BR></TD></TR></TABLE></TD></TR></TABLE><BR><BR>        					</div>
+      					</div>
+    				</div>
+					<div class="Border_1" style="background-image:url(./layouts/tibiarl/images/content/border-1.gif);"></div>
+					<div class="CornerWrapper-b"><div class="Corner-bl" style="background-image:url(./layouts/tibiarl/images/content/corner-bl.gif);"></div></div>
+					<div class="CornerWrapper-b"><div class="Corner-br" style="background-image:url(./layouts/tibiarl/images/content/corner-br.gif);"></div></div>
+  				</div>
+              	<div id="ThemeboxesColumn">
+                	<div id="DeactivationContainerThemebox" onclick="DisableDeactivationContainer();"></div>
+                	<div id="RightArtwork">
+                  		<img id="Monster" src="./layouts/tibiarl/images/gaz.gif" onclick="window.location = #" alt="Monster of the Week">
+                  		<img id="PedestalAndOnline" src="./layouts/tibiarl/images/header/pedestal-and-online.gif" alt="Monster Pedestal and Players Online Box">
+                  		<div id="PlayersOnline" onClick="window.location='?subtopic=whoisonline'">
+		  				55<br /> Players Online		  				</div>
+        			</div>
+                	<div id="Themeboxes">
+						<!-- donate theme box -->
+						<div id="DonateBox" class="Themebox" style="background-image:url(./layouts/tibiarl/images/themeboxes/donate/donate.gif);">
+    						<div class="ThemeboxButton">
+    							<form action="?subtopic=donate" method="post" style="padding:0px;margin:0px;">
+									<div class="BigButton" style="background-image:url(./layouts/tibiarl/images/buttons/sbutton.gif)">
+										<div onmouseover="MouseOverBigButton(this);" onmouseout="MouseOutBigButton(this);"><div class="BigButtonOver" style="background-image:url(./layouts/tibiarl/images/buttons/sbutton_over.gif);"></div>
+											<input class="ButtonText" type="image" name="Get Points" alt="Get Points" src="./layouts/tibiarl/images/buttons/_sbutton_donate.gif">
+										</div>
+									</div>
+								</form>  
+							</div>
+  							<div class="Bottom" style="background-image:url(./layouts/tibiarl/images/general/box-bottom.gif);"></div>
+						</div>
+                  		<!-- premium theme box -->
+						<div id="PremiumBox" class="Themebox" style="background-image:url(./layouts/tibiarl/images/themeboxes/premium/premiumbox.gif);">
+    						<div class="ThemeboxButton">				
+    							<form action="?subtopic=shopsystem" method="post" style="padding:0px;margin:0px;">
+									<div class="BigButton" style="background-image:url(./layouts/tibiarl/images/buttons/sbutton.gif)">
+										<div onmouseover="MouseOverBigButton(this);" onmouseout="MouseOutBigButton(this);"><div class="BigButtonOver" style="background-image:url(./layouts/tibiarl/images/buttons/sbutton_over.gif);"></div>
+											<input class="ButtonText" type="image" name="Get Premium" alt="Get Premium" src="./layouts/tibiarl/images/buttons/_sbutton_getpremium.gif">
+										</div>
+									</div>
+								</form>  
+							</div>
+  							<div class="Bottom" style="background-image:url(./layouts/tibiarl/images/general/box-bottom.gif);"></div>
+						</div>
+						<!-- networks theme box -->
+																		<div id="NetworksBox" class="Themebox" style="background-image:url(./layouts/tibiarl/images/themeboxes/networks/networksbox.png);">
+  							<div id="FacebookBlock">
+    							<div id="FacebookLikeBox">
+      								<div class="fb-like-box fb_iframe_widget" data-href="https://www.facebook.com/themajesticserver" data-width="175" data-height="180" data-show-faces="true" data-stream="false" data-border-color="none" data-header="false" fb-xfbml-state="rendered">
+										<span style="vertical-align: bottom; width: 181px; height: 180px;">
+										</span>
+									</div>
+    							</div>
+    							<div id="FacebookSendBox">
+									<a href="https://www.facebook.com/themajesticserver" id="name" target="_blank">
+										<img title="Facebook" src="./layouts/tibiarl/images/social/fb0.png" style="margin-top:-530px; margin-left:-240px; position:absolute; overflow:visible; display:block;" onmouseover="this.src='./layouts/tibiarl/images/social/fb1.png'" onmouseout="this.src='./layouts/tibiarl/images/social/fb0.png'" />
+									</a>
+      								<div class="fb-send fb_iframe_widget" data-href="https://www.facebook.com/themajesticserver" data-width="50" data-height="20" fb-xfbml-state="rendered">
+										<span style="vertical-align: bottom; width: 50px; height: 20px;">
+										</span>
+									</div>
+    							</div>
+    							<div id="FacebookLikes">
+      								<div class="fb-like fb_edge_widget_with_comment fb_iframe_widget" data-href="https://www.facebook.com/themajesticserver" data-send="false" data-width="225" data-show-faces="false" fb-xfbml-state="rendered">
+										<span style="height: 28px; width: 225px;">
+										</span>
+									</div>
+    							</div>
+  							</div>
+							  							<div id="TwitterBlock">
+    							<a href="https://twitter.com/" class="twitter-follow-button" data-show-count="false">Follow @</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  							</div>
+							  							<div class="Bottom" style="background-image:url(./layouts/tibiarl/images/general/box-bottom.gif);"></div>
+						</div>
+
+												    					<!-- current poll theme box -->
+										<br>
+			<br>
+		<br>
+    <br>
+<br>
+<br>
+<br>
+<div id="Themeboxes">
+<style type="text/css" media="all">
+  .Toplevelbox {
+    top: -4px;
+    position: relative;
+    margin-bottom: 10px;
+    width: 180px;
+    height: 200px;
+  }
+  .top_level {
+    position: absolute;
+    top: 29px;
+    left: 6px;
+    height: 160px;
+    width: 168px;
+    z-index: 20;
+    text-align: center;
+    padding-top: 6px;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 9.2pt;
+    color: #FFF;
+    font-weight: bold;
+    text-align: right;
+    text-decoration: inherit;
+    text-shadow: 0.1em 0.1em #333
+  }
+
+  #Topbar a {
+  text-decoration: none;
+  cursor: auto;
+  }
+  a.topfont {
+    font-family: Verdana, Arial, Helvetica; 
+    font-size: 11px; 
+        color: #0F0;
+    text-decoration: none
+  }
+  a:hover.topfont {
+    font-family: Verdana, Arial, Helvetica; 
+    font-size: 11px; 
+    color: #CCC; 
+    text-decoration:none
+  }
+</style>
+
+<div id="Topbar" class="Toplevelbox" style="background-image:url(./layouts/tibiarl/images/themeboxes/top_level.png);">
+  <div class="top_level" style="background:url(./layouts/tibiarl/images/themeboxes/bg_top.png)" align="	">
+    <div align="left"><a href="?subtopic=characters&name=Zingi Da Paralized" class="topfont">
+        <font color="#CCC">&nbsp;&nbsp;&nbsp;&nbsp;1 - </font>Zingi Da Paralized
+        <br>
+        <small><font color="white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Level: (466)</font></small>
+        <br>
+      </a>
+      </div><div align="left"><a href="?subtopic=characters&name=Don Cuerno" class="topfont">
+        <font color="#CCC">&nbsp;&nbsp;&nbsp;&nbsp;2 - </font>Don Cuerno
+        <br>
+        <small><font color="white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Level: (446)</font></small>
+        <br>
+      </a>
+      </div><div align="left"><a href="?subtopic=characters&name=Merlin" class="topfont">
+        <font color="#CCC">&nbsp;&nbsp;&nbsp;&nbsp;3 - </font>Merlin
+        <br>
+        <small><font color="white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Level: (428)</font></small>
+        <br>
+      </a>
+      </div><div align="left"><a href="?subtopic=characters&name=Many Fresh" class="topfont">
+        <font color="#CCC">&nbsp;&nbsp;&nbsp;&nbsp;4 - </font>Many Fresh
+        <br>
+        <small><font color="white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Level: (411)</font></small>
+        <br>
+      </a>
+      </div><div align="left"><a href="?subtopic=characters&name=Habla El Juan" class="topfont">
+        <font color="#CCC">&nbsp;&nbsp;&nbsp;&nbsp;5 - </font>Habla El Juan
+        <br>
+        <small><font color="white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Level: (407)</font></small>
+        <br>
+      </a>
+      </div>    <div class="Bottom" style="background-image:url(./layouts/tibiarl/images/general/box-bottom.gif); top: 159px;; left:-5px;">
+    </div>
+  </div>
+</div>
+                	</div>
+              	</div>
+            </div>
+		</div>
+		
+         <div id="Footer">
+			            The Majestic Server by Darknight. Layout by CipSoft GmbH.<br/>Page has been viewed 236861 times. Load time: 0.0468 seconds, queries: 7          </div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+  
+  <script type="text/javascript">
+    // disable all control elements which are not part of the content container element
+    if (g_Deactivated == true) {
+      document.getElementById('LoginButtonContainer').style.zIndex = "1";
+      document.getElementById('DeactivationContainer').style.display = "block";
+      document.getElementById('DeactivationContainer').style.zIndex = "50";
+      document.getElementById('DeactivationContainerThemebox').style.display = "block";
+      document.getElementById('Monster').style.cursor = "auto";
+      document.getElementById('PlayersOnline').style.cursor = "auto";
+      document.getElementById('ThemeboxesColumn').style.opacity = "0.30";
+      document.getElementById('ThemeboxesColumn').style.MozOpacity = "0.30";
+      document.getElementById('ThemeboxesColumn').filters.alpha.opacity = "0.75";
+      document.getElementById('ThemeboxesColumn').style.filter = "alpha(opacity=50); opacity: 0.30";
+      document.getElementById('Monster').setAttribute("onclick", "")
+      document.getElementById('PlayersOnline').setAttribute("onclick", "")
+    }
+  </script>
+  	<div id="HelperDivContainer" style="background-image: url(./layouts/tibiarl/images/content/scroll.gif);">
+  		<div class="HelperDivArrow" style="background-image: url(./layouts/tibiarl/images/content/helper-div-arrow.png);"></div>
+  		<div id="HelperDivHeadline"></div>
+  		<div id="HelperDivText"></div>
+ 		<center>
+  			<img class="Ornament" src="./layouts/tibiarl/images/content/ornament.gif">
+  		</center>
+  	<br>
+	</div>
+</body>
+</html>
